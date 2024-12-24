@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Xmas Gift Redemption Form</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif; /* Using Arial as a common sans-serif font */
+        background-color: #f4f4f4; /* Light grey background for a minimal look */
+        color: #333; /* Dark grey text for better readability */
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    h1 {
+        color: #222; /* Slightly darker color for headings */
+    }
+
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for the form */
+    }
+
+    input[type="date"] {
+        width: 100%; /* Full width inputs */
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #ddd; /* Light border for inputs */
+        border-radius: 4px; /* Rounded corners for inputs */
+    }
+
+    button {
+        background-color: #5c67f2; /* A soft blue background */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #4a54e1; /* Darker blue on hover */
+    }
+
+    img {
+        max-width: 100%; /* Responsive image sizing */
+        height: auto;
+        display: block;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>Bolon Date Selection Form</h1>
+    <p>How better to remember a jolly holiday season and start the new year afresh than enjoying an experience together which can be carried on? <br>
+    We will go for a nightlight carving session, creating a artistic nightlight to remember the experience by, and bring it to our new home! <br>
+    </p>
+    <p>Please input your preferred time below, from your most preferred to least preferred:</p>
+    <img src="pic.jpg" alt="Placeholder Image">
+
+    <form id="submit-form">
+        <label for="date1">Select Date 1:</label><br>
+        <input type="date" id="date1" name="date1" required><br>
+
+        <label for="date2">Select Date 2:</label><br>
+        <input type="date" id="date2" name="date2" required><br>
+
+        <label for="date3">Select Date 3:</label><br>
+        <input type="date" id="date3" name="date3" required><br>
+
+        <label for="date4">Select Date 4:</label><br>
+        <input type="date" id="date4" name="date4" required><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var form = document.getElementById('submit-form');
+            var formData = new FormData(form);
+            fetch('https://script.google.com/macros/s/AKfycbyo33GuC2yp-i-5J6sYQ-VfJXBe0NTriJA7IeZie_SRSPAY5AWEUrbCFsGf1SAczmfB/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => alert('Date selections submitted successfully'))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
